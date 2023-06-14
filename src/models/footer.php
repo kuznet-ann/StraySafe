@@ -7,7 +7,7 @@
             <div class="footer__wrapper">
                 <ul class="footer__list">
                     <li class="footer__item"><a href="#" class="footer__link title-fz16">Наши питомцы</a></li>
-                    <li class="footer__item"><a href="#" class="footer__link title-fz16">Волонтёрство</a></li>
+                    <li class="footer__item"><a href="/dist/pages/volunteers.php" class="footer__link title-fz16">Волонтёрство</a></li>
                     <li class="footer__item"><a href="#" class="footer__link title-fz16">Мероприятия</a></li>
                     <li class="footer__item"><a href="#" class="footer__link title-fz16">Нашли дом</a></li>
                     <li class="footer__item"><a href="#" class="footer__link title-fz16">О нас</a></li>

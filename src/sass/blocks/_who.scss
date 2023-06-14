@@ -1,0 +1,23 @@
+.who {
+    padding-top: 40px;
+    &__title {
+        margin-bottom: 10px;
+    }
+    &__descr {
+        margin-top: 10px;
+    }
+    &__btn {
+        margin-top: 20px;
+    }
+    &__wrapper {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px
+    }
+    &__line {
+        height: 2px;
+        width: 100%;
+        background-color: $primaryColor;
+    }
+}

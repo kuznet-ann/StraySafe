@@ -86,8 +86,13 @@ button {
 
 @import 'blocks/header';
 @import 'blocks/footer';
+@import 'blocks/breadcrumbs';
 
-
+// Главная
 @import 'blocks/promo';
 @import 'blocks/ourpets';
 @import 'blocks/lastevent';
+
+// Волонтёрство
+@import 'blocks/who';
+@import 'blocks/volonteer';

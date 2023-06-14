@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-
+    
     <section class="lastevent">
         <div class="container">
             <h2 class="lastevent__title title-fz28">Мероприятия</h2>
