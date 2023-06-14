@@ -1,0 +1,15 @@
+.promo {
+    padding-top: 355px;
+    height: 720px;
+    background: url('../images/promo/promo-bg.png') center center/cover no-repeat;
+    &__title {
+        text-align: center;
+        color: $whiteBase;
+    }
+    &__btn {
+        width: 227px;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 40px;
+    }
+}

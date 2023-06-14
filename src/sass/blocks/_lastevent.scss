@@ -1,0 +1,57 @@
+.lastevent {
+    padding-top: 120px;
+    &__title {
+        text-align: center;
+    }
+    &__wrapper {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 495px 701px;
+        grid-template-rows: repeat(2,239px);
+        gap: 20px;
+
+    }
+    &__link {
+        padding: 20px;
+        width: 701px;
+        border: $thirdColor 2px solid; 
+        border-radius: 5px;
+        display: flex;
+        gap: 20px;
+        transition: all .3s;
+        &:hover {
+            border-width: 6px;
+        }
+    }
+    &__img {
+        object-fit: cover;
+        border-radius: 5px;
+        height: 199px;
+        width: 185px;
+        border-radius: 5px;
+    }
+    &__link-main {
+        padding: 0;
+        width: 495px;
+        height: 498px;
+        overflow: hidden;
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+    &__img-main {
+        width: 495px;
+        height: 498px;
+        border-radius: 0;
+    }
+    &__descr {
+        margin-top: 10px;
+    }
+    &__img-paw {
+        margin-top: 14px;
+        width: 50px;
+        height: 50px;
+        float: right;
+        object-fit: none;
+        border-radius: none;
+    }
+}
