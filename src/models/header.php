@@ -10,7 +10,7 @@
                     <li class="menu__item"><a href="/dist/pages/volunteers.php" class="menu__link title-fz16">Волонтёрство</a></li>
                     <li class="menu__item"><a href="#" class="menu__link title-fz16">Мероприятия</a></li>
                     <li class="menu__item"><a href="#" class="menu__link title-fz16">Нашли дом</a></li>
-                    <li class="menu__item"><a href="#" class="menu__link title-fz16">О нас</a></li>
+                    <li class="menu__item"><a href="/dist/pages/about.php" class="menu__link title-fz16">О нас</a></li>
                 </ul>
     
             </nav>
