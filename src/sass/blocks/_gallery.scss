@@ -1,0 +1,19 @@
+.gallery {
+    padding-top: 60px;
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    &__item {
+        width: 289px;
+        height: 400px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    &__img {
+        width: 289px;
+        height: 400px;
+        object-fit: cover;
+    }
+}

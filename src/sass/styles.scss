@@ -103,6 +103,10 @@ input[type=checkbox] {
 // Наши питомцы
 @import 'blocks/pets';
 
+// Страница питомца
+@import 'blocks/pets-page';
+@import 'blocks/gallery';
+
 // Волонтёрство
 @import 'blocks/who';
 @import 'blocks/volonteer';

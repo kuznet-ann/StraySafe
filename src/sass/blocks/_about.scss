@@ -1,6 +1,9 @@
 .about {
     &__item {
         margin-top: 40px;
+        &:nth-child(odd) .about__wrapper {
+            flex-direction: row-reverse;
+        }
     }
     &__text {
         margin-top: 10px;
@@ -10,9 +13,6 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        &:nth-child(odd) {
-            flex-direction: row-reverse;
-        }
     }
     &__line {
         width: 100%;

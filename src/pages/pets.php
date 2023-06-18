@@ -65,7 +65,7 @@
 
             <ul class="catalog__list">
                 <li class="catalog__item">
-                    <a href="" class="catalog__link">
+                    <a href="pets-page.php" class="catalog__link">
                         <img src="../images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="catalog__img">
                         <div class="catalog__gradient">
                             <h3 class="catalog__title title-fz24">Тэсси</h3>
@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li class="catalog__item">
-                    <a href="" class="catalog__link">
+                    <a href="pets-page.php" class="catalog__link">
                         <img src="../images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="catalog__img">
                         <div class="catalog__gradient">
                             <h3 class="catalog__title title-fz24">Геральт</h3>
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="catalog__item">
-                    <a href="" class="catalog__link">
+                    <a href="pets-page.php" class="catalog__link">
                         <img src="../images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="catalog__img">
                         <div class="catalog__gradient">
                             <h3 class="catalog__title title-fz24">Лео</h3>
@@ -107,7 +107,7 @@
                     </a>
                 </li>
                 <li class="catalog__item">
-                    <a href="" class="catalog__link">
+                    <a href="pets-page.php" class="catalog__link">
                         <img src="../images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="catalog__img">
                         <div class="catalog__gradient">
                             <h3 class="catalog__title title-fz24">Топси</h3>

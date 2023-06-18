@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="breadcrumbs__list">
                 <a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a>
-                <a href="pets.php" class="breadcrumbs__link title-fz16">Нашли дом</a>
+                <a href="foundhome.php" class="breadcrumbs__link title-fz16">Нашли дом</a>
             </div>
         </div>
     </section>
