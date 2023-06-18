@@ -9,7 +9,7 @@ const htmlmin = require('gulp-htmlmin');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "stray-safe",
+        proxy: "stray-safe/dist",
         notify: false
     });
 

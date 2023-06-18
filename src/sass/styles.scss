@@ -29,6 +29,13 @@ button {
     background-color: transparent;
 }
 
+input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    border: 2px solid $secondColor;
+    color: $secondColor;
+}
+
 
 // Multiclass
 .container {
@@ -93,9 +100,18 @@ button {
 @import 'blocks/ourpets';
 @import 'blocks/lastevent';
 
+// Наши питомцы
+@import 'blocks/pets';
+
 // Волонтёрство
 @import 'blocks/who';
 @import 'blocks/volonteer';
+
+// Мероприятия
+@import 'blocks/events';
+
+// Нашли дом
+@import 'blocks/foundhome';
 
 // О нас
 @import 'blocks/about';
