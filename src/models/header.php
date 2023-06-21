@@ -5,13 +5,25 @@
                     <img src="/dist/images/logo-horizontal.svg" alt="Логотип StraySafe" class="menu__logo">
                 </a>
         
-                <ul class="menu__list">
-                    <li class="menu__item"><a href="/dist/pages/pets.php" class="menu__link title-fz16">Наши питомцы</a></li>
-                    <li class="menu__item"><a href="/dist/pages/volunteers.php" class="menu__link title-fz16">Волонтёрство</a></li>
-                    <li class="menu__item"><a href="/dist/pages/events.php" class="menu__link title-fz16">Мероприятия</a></li>
-                    <li class="menu__item"><a href="/dist/pages/foundhome.php" class="menu__link title-fz16">Нашли дом</a></li>
-                    <li class="menu__item"><a href="/dist/pages/about.php" class="menu__link title-fz16">О нас</a></li>
-                </ul>
+                <div class="menu__list-bg">
+                    <div class="menu__close">
+                        <div class="menu__icon-close menu__icon-close-1"></div>
+                        <div class="menu__icon-close menu__icon-close-2"></div>
+                    </div>
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="/dist/pages/pets.php" class="menu__link title-fz16">Наши питомцы</a></li>
+                        <li class="menu__item"><a href="/dist/pages/volunteers.php" class="menu__link title-fz16">Волонтёрство</a></li>
+                        <li class="menu__item"><a href="/dist/pages/events.php" class="menu__link title-fz16">Мероприятия</a></li>
+                        <li class="menu__item"><a href="/dist/pages/foundhome.php" class="menu__link title-fz16">Нашли дом</a></li>
+                        <li class="menu__item"><a href="/dist/pages/about.php" class="menu__link title-fz16">О нас</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu__hamburger">
+                    <div class="menu__icon menu__icon-1"></div>
+                    <div class="menu__icon menu__icon-2"></div>
+                    <div class="menu__icon menu__icon-3"></div>
+                </div>
     
             </nav>
         </div>

@@ -1,12 +1,15 @@
 .ourpets {
     padding-top: 120px;
     position: relative;
+    .container {
+        position: relative;
+    }
     &__title {
         text-align: center;
     }
     &__wrapper {
         position: absolute;
-        top: 295px;
+        top: 175px;
         left: 50%;
         transform: translateX(-50%);
         padding-right: 50px;
@@ -14,6 +17,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 10;
     }
     &__arrow {
         cursor: pointer;
@@ -31,15 +35,24 @@
     }
 
 
-
-    &__list {
+    &__slider {
+        overflow: hidden;
+        height: 289px;
+        margin: 0 auto;
         margin-top: 20px;
+        position: relative;
+    }
+    &__list {
+        position: absolute;
+        top: 0;
+        left: 0;
         display: flex;
-        justify-content: space-between;
+        gap: 20px;
+        transition: all .5s;
     }
     &__card {
         cursor: pointer;
-        width: 289px;
+        min-width: 289px;
         height: 289px;
         object-fit: cover;
         border-radius: 5px;
@@ -68,5 +81,32 @@
     }
     &__subtitle, &__text {
         color: $whiteBase;
+    }
+}
+
+@media (max-width: 769px) {
+    .ourpets {
+        &__wrapper {
+            width: 90%;
+        }
+        &__slider {
+            width: 598px;
+        }
+    }
+}
+
+@media (max-width: 426px) {
+    .ourpets {
+        &__wrapper {
+            width: 85%;
+        }
+        &__paw-fill {
+            &:hover {
+                opacity: 0;
+            }
+        }
+        &__slider {
+            width: 289px;
+        }
     }
 }

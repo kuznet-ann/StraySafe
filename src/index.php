@@ -32,35 +32,79 @@
                 </button>
             </div>
             <div class="ourpets__slider">
-
                 <ul class="ourpets__list">
                     <li class="ourpets__card">
-                        <div class="ourpets__gradient">
-                            <h3 class="ourpets__subtitle title-fz24">Тесси</h3>
-                            <p class="ourpets__text">Девочка, 3,5 месяца</p>
-                        </div>
-                        <img src="images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="ourpets__img">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Тесси</h3>
+                                <p class="ourpets__text">Девочка, 3,5 месяца</p>
+                            </div>
+                            <img src="images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="ourpets__img">
+                        </a>
                     </li>
                     <li class="ourpets__card">
-                        <div class="ourpets__gradient">
-                            <h3 class="ourpets__subtitle title-fz24">Геральт</h3>
-                            <p class="ourpets__text">Мальчик, 9 месяцев</p>
-                        </div>
-                        <img src="images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="ourpets__img">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Геральт</h3>
+                                <p class="ourpets__text">Мальчик, 9 месяцев</p>
+                            </div>
+                            <img src="images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="ourpets__img">
+                        </a>
                     </li>
                     <li class="ourpets__card">
-                        <div class="ourpets__gradient">
-                            <h3 class="ourpets__subtitle title-fz24">Лео</h3>
-                            <p class="ourpets__text">Мальчик, 1 год</p>
-                        </div>
-                        <img src="images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="ourpets__img">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Лео</h3>
+                                <p class="ourpets__text">Мальчик, 1 год</p>
+                            </div>
+                            <img src="images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="ourpets__img">
+                        </a>
                     </li>
                     <li class="ourpets__card">
-                        <div class="ourpets__gradient">
-                            <h3 class="ourpets__subtitle title-fz24">Топси</h3>
-                            <p class="ourpets__text">Девочка, 2 года</p>
-                        </div>
-                        <img src="images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="ourpets__img">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Топси</h3>
+                                <p class="ourpets__text">Девочка, 2 года</p>
+                            </div>
+                            <img src="images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="ourpets__img">
+                        </a>
+                    </li>
+
+                    <li class="ourpets__card">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Тесси</h3>
+                                <p class="ourpets__text">Девочка, 3,5 месяца</p>
+                            </div>
+                            <img src="images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="ourpets__img">
+                        </a>
+                    </li>
+                    <li class="ourpets__card">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Геральт</h3>
+                                <p class="ourpets__text">Мальчик, 9 месяцев</p>
+                            </div>
+                            <img src="images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="ourpets__img">
+                        </a>
+                    </li>
+                    <li class="ourpets__card">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Лео</h3>
+                                <p class="ourpets__text">Мальчик, 1 год</p>
+                            </div>
+                            <img src="images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="ourpets__img">
+                        </a>
+                    </li>
+                    <li class="ourpets__card">
+                        <a href="pages/pets-page.php" class="ourpets__link">
+                            <div class="ourpets__gradient">
+                                <h3 class="ourpets__subtitle title-fz24">Топси</h3>
+                                <p class="ourpets__text">Девочка, 2 года</p>
+                            </div>
+                            <img src="images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="ourpets__img">
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -71,25 +115,25 @@
         <div class="container">
             <h2 class="lastevent__title title-fz28">Мероприятия</h2>
             <div class="lastevent__wrapper">
-                <a href="#" class="lastevent__link lastevent__link-main">
+                <a href="pages/events-page.php" class="lastevent__link lastevent__link-main">
                     <img src="images/events/ostaemsya-pomogat.png" alt="Благотворительная акция «Остаёмся помогать»" class="lastevent__img lastevent__img-main">
                 </a>
-                <a href="#" class="lastevent__link">
+                <a href="pages/events-page.php" class="lastevent__link">
                     <img src="images/events/svoimi-lapkami.png" alt="Арт-сеанс «Своими лапками»" class="lastevent__img">
                     <div class="lastevent__text">
                         <h4 class="lastevent__subtitle title-fz20">Арт-сеанс «Своими лапками»</h4>
                         <p class="lastevent__descr">Пообщаться с симпатичными обитателями приютов и принять участие в творческом мастер-классе приглашает фонд «Собаки, которые любят». <br> 
                         Место: м.Бауманская, ул. Малая Почтовая, д. 2/2, стр. 8 <br> 
                         Дата: 11 июня,	12:00–16:00</p>
-                        <img src="images/ourpets/paw-right.svg" alt="" class="lastevent__img lastevent__img-paw">
+                        <img src="images/paw-fill.svg" alt="" class="lastevent__img lastevent__img-paw">
                     </div>
                 </a>
-                <a href="#" class="lastevent__link">
+                <a href="pages/events-page.php" class="lastevent__link">
                     <img src="images/events/druzej-ne-pokupaut.png" alt="Проект «Друзей не покупают»" class="lastevent__img">
                     <div class="lastevent__text">
                         <h4 class="lastevent__subtitle title-fz20">Проект «Друзей не покупают»</h4>
                         <p class="lastevent__descr">Если раньше найти себе питомца можно было в приюте или на тематических фестивалях и выставках, то теперь в Петербурге появилось ещё одно место. Но только «укотовлением» дело не ограничивается. Рассказываем, в чём особенность проекта «Друзей не покупают». </p>
-                        <img src="images/ourpets/paw-right.svg" alt="" class="lastevent__img lastevent__img-paw">
+                        <img src="images/paw-fill.svg" alt="" class="lastevent__img lastevent__img-paw">
                     </div>
                 </a>
             </div>
@@ -97,5 +141,8 @@
     </section>
 
     <?php include('models/footer.php') ?>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>

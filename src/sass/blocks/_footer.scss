@@ -26,3 +26,23 @@
         width: 175px;
     }
 }
+
+@media (max-width: 769px) {
+    .footer {
+        .container {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: 426px) {
+    .footer {
+        &__list {
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+}

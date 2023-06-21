@@ -20,3 +20,24 @@
         margin-top: 20px;
     }
 }
+
+@media (max-width: 769px) {
+    .pets-info {
+        &__info {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        &__wrapper {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 426px) {
+    .pets-info {
+        &__img {
+            width: 100%;
+        }
+    }
+}

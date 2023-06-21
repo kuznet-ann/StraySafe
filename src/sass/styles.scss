@@ -25,6 +25,7 @@ ul {
 }
 
 button {
+    cursor: pointer;
     border: none;
     background-color: transparent;
 }
@@ -39,7 +40,8 @@ input[type=checkbox] {
 
 // Multiclass
 .container {
-    width: 1216px;
+    width: 100%;
+    max-width: 1216px;
     margin: 0 auto;
 }
 
@@ -90,10 +92,24 @@ input[type=checkbox] {
     }
 }
 
+@media (max-width: 769px) {
+    .container {
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 426px) {
+    .title-fz38 {
+        font-size: 34px;
+    }
+}
+
 
 @import 'blocks/header';
 @import 'blocks/footer';
 @import 'blocks/breadcrumbs';
+@import 'blocks/overlay';
 
 // Главная
 @import 'blocks/promo';
@@ -104,7 +120,7 @@ input[type=checkbox] {
 @import 'blocks/pets';
 
 // Страница питомца
-@import 'blocks/pets-page';
+@import 'blocks/pets-info';
 @import 'blocks/gallery';
 
 // Волонтёрство
@@ -113,6 +129,9 @@ input[type=checkbox] {
 
 // Мероприятия
 @import 'blocks/events';
+
+// Страница мероприятия
+@import 'blocks/events-info';
 
 // Нашли дом
 @import 'blocks/foundhome';

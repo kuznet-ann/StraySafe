@@ -3,6 +3,7 @@
     &__list {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 20px;
     }
     &__item {
@@ -15,5 +16,16 @@
         width: 289px;
         height: 400px;
         object-fit: cover;
+    }
+}
+
+@media (max-width: 769px) {
+    .gallery {
+        &__list {
+            justify-content: center;
+        }
+        &__img {
+            width: 300px;
+        }
     }
 }
