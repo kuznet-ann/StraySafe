@@ -49,6 +49,7 @@
     </section>
 
     <?php include('../models/footer.php') ?>
+    <?php include('../models/reg-overlay.php') ?>
 
     <div class="overlay">
         <div class="overlay__contact">

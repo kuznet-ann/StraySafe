@@ -141,6 +141,8 @@
     </section>
 
     <?php include('models/footer.php') ?>
+    <?php include('models/reg-overlay.php') ?>
+
 
     <script src="js/script.js"></script>
 

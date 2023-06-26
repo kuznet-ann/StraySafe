@@ -6,6 +6,12 @@
     height: 100%;
     top: 0;
     z-index: 100;
+    &__contact-reg {
+        display: none;
+    }
+    &__contact-login {
+        display: none;
+    }
     &__contact {
         position: absolute;
         box-sizing: border-box;
@@ -17,7 +23,7 @@
         border-radius: 5px;
         background-color: $whiteBase;
     }
-    &__img {
+    &__close {
         position: absolute;
         top: 0;
         right: -50px;
@@ -28,10 +34,8 @@
     &__descr {
         margin-top: 5px;
     }
-    &__form {
-        margin-top: 20px;
-    }
     &__input {
+        margin-top: 20px;
         padding: 15px 20px;
         width: 100%;
         box-sizing: border-box;
@@ -47,6 +51,12 @@
     &__btn {
         margin: 0 auto;
         margin-top: 20px;
+    }
+    &__link {
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        font-weight: normal;
     }
 }
 

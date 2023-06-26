@@ -42,12 +42,19 @@
     &__img-sort svg {
         fill: $primaryColor;
     }
-    &__form-sort {
-        z-index: 5;
+    &__sort-wrapper {
+        top: -220px;
+        left: -270px;
+        width: 200vh;
+        height: 200vh;
         display: none;
-        top: 70px;
-        right: 0;
         position: absolute;
+        z-index: 5;
+    }
+    &__form-sort {
+        position: absolute;
+        right: 263px;
+        top: 290px;
         padding: 20px;
         box-sizing: border-box;
         width: 289px;

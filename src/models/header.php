@@ -16,6 +16,7 @@
                         <li class="menu__item"><a href="/dist/pages/events.php" class="menu__link title-fz16">Мероприятия</a></li>
                         <li class="menu__item"><a href="/dist/pages/foundhome.php" class="menu__link title-fz16">Нашли дом</a></li>
                         <li class="menu__item"><a href="/dist/pages/about.php" class="menu__link title-fz16">О нас</a></li>
+                        <li class="menu__item btn-overla-reg"><img src="/dist/images/user.png" alt="Иконка профила" class="menu__user"></li>
                     </ul>
                 </div>
 

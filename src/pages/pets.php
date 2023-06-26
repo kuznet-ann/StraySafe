@@ -28,39 +28,41 @@
                 <button class="catalog__btn-sort">
                     <img class="catalog__img-sort" name="name" src="../images/sort.svg" alt="Иконка сортировки">
                 </button>
-    
-                <form action="" class="catalog__form catalog__form-sort">
-                    <div class="catalog__wrapper">
-                        <h5 class="catalog__subtitle title-fz16">Пол</h5>
-                        <div class="catalog__checkbox">
-                            <input type="checkbox" name="boy" id="boy" class="catalog__input">
-                            <label for="boy" class="catalog__input">Мальчик</label>
+
+                <div class="catalog__sort-wrapper">
+                    <form action="" class="catalog__form catalog__form-sort">
+                        <div class="catalog__wrapper">
+                            <h5 class="catalog__subtitle title-fz16">Пол</h5>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="boy" id="boy" class="catalog__input">
+                                <label for="boy" class="catalog__input">Мальчик</label>
+                            </div>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="girl" id="girl" class="catalog__input">
+                                <label for="girl" class="catalog__input">Девочка</label>
+                            </div>
                         </div>
-                        <div class="catalog__checkbox">
-                            <input type="checkbox" name="girl" id="girl" class="catalog__input">
-                            <label for="girl" class="catalog__input">Девочка</label>
+                        <div class="catalog__wrapper">
+                            <h5 class="catalog__subtitle title-fz16">Возраст</h5>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="young" id="young" class="catalog__input">
+                                <label for="young" class="catalog__input">До года</label>
+                            </div>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="teen" id="teen" class="catalog__input">
+                                <label for="teen" class="catalog__input">От года до трёх лет</label>
+                            </div>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="adult" id="adult" class="catalog__input">
+                                <label for="adult" class="catalog__input">От трёх до пяти лет</label>
+                            </div>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="old" id="old" class="catalog__input">
+                                <label for="old" class="catalog__input">От пяти лет</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="catalog__wrapper">
-                        <h5 class="catalog__subtitle title-fz16">Возраст</h5>
-                        <div class="catalog__checkbox">
-                            <input type="checkbox" name="young" id="young" class="catalog__input">
-                            <label for="young" class="catalog__input">До года</label>
-                        </div>
-                        <div class="catalog__checkbox">
-                            <input type="checkbox" name="teen" id="teen" class="catalog__input">
-                            <label for="teen" class="catalog__input">От года до трёх лет</label>
-                        </div>
-                        <div class="catalog__checkbox">
-                            <input type="checkbox" name="adult" id="adult" class="catalog__input">
-                            <label for="adult" class="catalog__input">От трёх до пяти лет</label>
-                        </div>
-                        <div class="catalog__checkbox">
-                            <input type="checkbox" name="old" id="old" class="catalog__input">
-                            <label for="old" class="catalog__input">От пяти лет</label>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
 
             <ul class="catalog__list">
@@ -126,6 +128,8 @@
 
 
     <?php include('../models/footer.php') ?>
+    <?php include('../models/reg-overlay.php') ?>
+
 
     <script src="../js/script.js"></script>
 
