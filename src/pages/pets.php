@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    include('../config/main.php');
+
+    $queryPetInfo = "SELECT DISTINCT pets.id, `name`, pets.descr, TIMESTAMPDIFF(MONTH,`age`,CURRENT_DATE) as age, `gender`, `avatar`, `type` FROM `pets`,`foundhome` WHERE pets.id!=foundhome.pet_id";
+    $resultPetInfo = mysqli_query($connection,$queryPetInfo);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -34,6 +42,17 @@
                         <div class="catalog__wrapper">
                             <h5 class="catalog__subtitle title-fz16">Пол</h5>
                             <div class="catalog__checkbox">
+                                <input type="checkbox" name="cat" id="cat" class="catalog__input">
+                                <label for="boy" class="catalog__input">Кот</label>
+                            </div>
+                            <div class="catalog__checkbox">
+                                <input type="checkbox" name="dog" id="dog" class="catalog__input">
+                                <label for="girl" class="catalog__input">Собака</label>
+                            </div>
+                        </div>
+                        <div class="catalog__wrapper">
+                            <h5 class="catalog__subtitle title-fz16">Пол</h5>
+                            <div class="catalog__checkbox">
                                 <input type="checkbox" name="boy" id="boy" class="catalog__input">
                                 <label for="boy" class="catalog__input">Мальчик</label>
                             </div>
@@ -66,13 +85,57 @@
             </div>
 
             <ul class="catalog__list">
+                <?php while($row = $resultPetInfo->fetch_assoc()) :?>
                 <li class="catalog__item">
-                    <a href="pets-page.php" class="catalog__link">
-                        <img src="../images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="catalog__img">
+                    <a href="pets-page.php?pet_id=<?=$row['id']?>" class="catalog__link">
+                        <img src="../images/pets/<?php
+                            switch ($row['type']) {
+                                case 'собака':
+                                    echo 'dogs';
+                                    break;
+                                
+                                case 'кот':
+                                    echo 'cats';
+                                    break;
+
+                                default:
+                                    echo '';
+                                    break;
+                            }
+                        ?>/<?=$row['avatar']?>.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="catalog__img">
                         <div class="catalog__gradient">
-                            <h3 class="catalog__title title-fz24">Тэсси</h3>
-                            <p class="catalog__descr catalog__descr-age">Девочка, 3,5 месяца</p>
-                            <p class="catalog__descr">Маленькое нежное сокровище</p>
+                            <h3 class="catalog__title title-fz24"><?=$row['name']?></h3>
+                            <p class="catalog__descr catalog__descr-age">
+                                <?php 
+                                    if($row['gender'] == 'ж') {
+                                        echo 'Девочка, ';
+                                    } else {
+                                        echo 'Мальчик, ';
+                                    }
+                                    if(($row['age']/12) >= 1 ) {
+                                        if(($row['age']/12) == 1) {
+                                            echo round($row['age']/12) . " год";
+                                        }
+                                        if(5 > ($row['age']/12) && ($row['age']/12) > 1) {
+                                            echo round($row['age']/12) . " года";
+                                        }
+                                        if(($row['age']/12) >= 5) {
+                                            echo round($row['age']/12) . " лет";
+                                        }
+                                    } else {
+                                        if($row['age'] == 1) {
+                                            echo $row['age'] . " месяц";
+                                        }
+                                        if($row['age'] > 1 && $row['age'] < 5) {
+                                            echo $row['age'] . " месяца";
+                                        }
+                                        if($row['age'] >= 5) {
+                                            echo $row['age'] . " месяцев";
+                                        }
+                                    }
+                                ?>
+                            </p>
+                            <p class="catalog__descr"><?=$row['descr']?></p>
                             <div class="catalog__item-wrappper">
                                 <button class="catalog__btn btn">Забрать питомца</button>
                                 <img src="../images/paw-fill.svg" alt="ораньжевая декоративная лапка" class="catalog__icon">
@@ -80,48 +143,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="catalog__item">
-                    <a href="pets-page.php" class="catalog__link">
-                        <img src="../images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="catalog__img">
-                        <div class="catalog__gradient">
-                            <h3 class="catalog__title title-fz24">Геральт</h3>
-                            <p class="catalog__descr catalog__descr-age">Мальчик, 9 месяцев</p>
-                            <p class="catalog__descr">Смесь волчонка и зайчонка. Готов дарить счастье своему хозяину</p>
-                            <div class="catalog__item-wrappper">
-                                <button class="catalog__btn btn">Забрать питомца</button>
-                                <img src="../images/paw-fill.svg" alt="ораньжевая декоративная лапка" class="catalog__icon">
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="catalog__item">
-                    <a href="pets-page.php" class="catalog__link">
-                        <img src="../images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="catalog__img">
-                        <div class="catalog__gradient">
-                            <h3 class="catalog__title title-fz24">Лео</h3>
-                            <p class="catalog__descr catalog__descr-age">Мальчик, 1 год</p>
-                            <p class="catalog__descr">Ласковый медвежонок с добрыми глазами и большой душой</p>
-                            <div class="catalog__item-wrappper">
-                                <button class="catalog__btn btn">Забрать питомца</button>
-                                <img src="../images/paw-fill.svg" alt="ораньжевая декоративная лапка" class="catalog__icon">
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="catalog__item">
-                    <a href="pets-page.php" class="catalog__link">
-                        <img src="../images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="catalog__img">
-                        <div class="catalog__gradient">
-                            <h3 class="catalog__title title-fz24">Топси</h3>
-                            <p class="catalog__descr catalog__descr-age">Девочка, 2 года</p>
-                            <p class="catalog__descr">Молодая и трогательная девочка заставит ваше сердце согреться</p>
-                            <div class="catalog__item-wrappper">
-                                <button class="catalog__btn btn">Забрать питомца</button>
-                                <img src="../images/paw-fill.svg" alt="ораньжевая декоративная лапка" class="catalog__icon">
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                <?php endwhile; ?>
             </ul>
         </div>
     </section>
@@ -130,7 +152,7 @@
     <?php include('../models/footer.php') ?>
     <?php include('../models/reg-overlay.php') ?>
 
-
+    <script src="../js/imask.js"></script>
     <script src="../js/script.js"></script>
 
 </body>

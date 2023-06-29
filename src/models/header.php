@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <header class="menu">
         <div class="container">
             <nav class="menu__navigation">
@@ -17,9 +19,12 @@
                         <li class="menu__item"><a href="/dist/pages/foundhome.php" class="menu__link title-fz16">Нашли дом</a></li>
                         <li class="menu__item"><a href="/dist/pages/about.php" class="menu__link title-fz16">О нас</a></li>
                         <li class="menu__item btn-overla-reg"><img src="/dist/images/user.png" alt="Иконка профила" class="menu__user"></li>
+                        <?php if(isset($_SESSION['login'])) :?>
+                            <li class="menu__item"><a href="/dist/pages/account.php" class="menu__link"><img src="/dist/images/user.png" alt="Иконка профила" class="menu__user"></a></li>
+                            <li class="menu__item"><a href="/dist/models/exit.php" class="menu__link title-fz16">Выход</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
-
                 <div class="menu__hamburger">
                     <div class="menu__icon menu__icon-1"></div>
                     <div class="menu__icon menu__icon-2"></div>

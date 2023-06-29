@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    include('../config/main.php');
+
+    $queryHome = "SELECT pets.name, foundhome.descr, foundhome.image FROM `foundhome`,`pets` WHERE pets.id=foundhome.pet_id";
+    $resultHome = mysqli_query($connection,$queryHome);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,7 +15,7 @@
     <link rel="stylesheet" href="../css/styles.min.css">
 </head>
 <body>
-    <?php include('../models/header.php') ?>
+    <?php include('../models/header.php'); ?>
 
     <section class="breadcrumbs">
         <div class="container">
@@ -21,16 +29,13 @@
     <section class="foundhome">
         <div class="container">
             <ul class="foundhome__list">
+                <?php while($row = $resultHome->fetch_assoc()): ?>
                 <li class="foundhome__item">
-                    <img src="../images/foundhome/lisa.png" alt="" class="foundhome__img">
-                    <h4 class="foundhome__title title-fz20">Лиса</h4>
-                    <p class="foundhome__descr">Умница и красавица похитила сердца своей семьи</p>
+                    <img src="../images/foundhome/<?=$row['image']?>.jpg" alt="" class="foundhome__img">
+                    <h4 class="foundhome__title title-fz20"><?=$row['name']?></h4>
+                    <p class="foundhome__descr"><?=$row['descr']?></p>
                 </li>
-                <li class="foundhome__item">
-                    <img src="../images/foundhome/protos.png" alt="" class="foundhome__img">
-                    <h4 class="foundhome__title title-fz20">Портос</h4>
-                    <p class="foundhome__descr">Обрел большую и дружную семью, ура!</p>
-                </li>
+                <?php endwhile;?>
             </ul>
         </div>
     </section>
@@ -38,6 +43,7 @@
     <?php include('../models/footer.php') ?>
     <?php include('../models/reg-overlay.php') ?>
 
+    <script src="../js/imask.js"></script>
     <script src="../js/script.js"></script>
 
 </body>

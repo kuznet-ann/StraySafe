@@ -59,7 +59,7 @@ const overlayFunc = (openBtn, block, closeBtn) => {
 };
 
 overlayFunc('.btn-overlay','.overlay','.overlay__close');
-overlayFunc('.btn-overla-reg','.overlay','.overlay__close');
+overlayFunc('.btn-overla-reg','.overlay-reg','.overlay__close');
 overlayFunc('.catalog__btn-sort','.catalog__sort-wrapper','.catalog__form-serch');
 
 // Переключение между регистрацией и авторизацией
@@ -132,3 +132,29 @@ const checkValidationPass = (inputId) => {
 };
 
 checkValidationPass("pass-reg");
+
+
+// Маски ввода
+document.addEventListener('DOMContentLoaded', () => {
+
+    const mask = (dataValue, options) => {
+        const elements = document.querySelectorAll(`input[type="${dataValue}"]`);
+        if (!elements) return;
+  
+        elements.forEach(el => {
+            IMask(el, options);
+      });
+    };
+  
+    // Маска для телефона
+    mask('tel', {
+        mask: '+{7}(000)000-00-00'
+    });
+  
+    // Маска для даты
+    mask('date', {
+        mask: Date,
+        min: new Date(1990, 0, 1),
+    });
+});
+

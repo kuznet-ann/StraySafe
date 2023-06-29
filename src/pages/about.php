@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -57,6 +60,7 @@
     <?php include('../models/footer.php') ?>
     <?php include('../models/reg-overlay.php') ?>
 
+    <script src="../js/imask.js"></script>
     <script src="../js/script.js"></script>
 
 </body>

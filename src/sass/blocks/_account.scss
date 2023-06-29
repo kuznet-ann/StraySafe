@@ -1,0 +1,15 @@
+.account {
+    padding-top: 40px;
+    &__title {
+        text-align: center;
+    }
+    &__list {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    &__item {
+        display: flex;
+        margin-bottom: 5px;
+    }
+}

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include('C:\openserver\domains\stray-safe\dist\config\main.php');
 
 // Регистрация
@@ -14,7 +16,7 @@ if (!$connection) {
 if (!empty($_POST['reg'])) {
     $login = $_POST['reg-input'];
     $email = $_POST['email-reg'];
-    $pass = $_POST['pass-reg'];
+    $pass = md5($_POST['pass-reg']);
 
     $checkLogin = false;
     $checkEmail = false;
@@ -32,6 +34,16 @@ if (!empty($_POST['reg'])) {
     
     if ($checkLogin == true) {
         mysqli_query($connection, "INSERT INTO `users`(`login`, `email`, `role`, `password`) VALUES ('$login','$email','0','$pass')") or die(mysqli_error($connection));
+        $query = "SELECT * FROM `users` WHERE login='$login'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+        while ($row = $result->fetch_assoc()) {
+            $_SESSION['idUser'] = $row['id'];
+            $_SESSION['login'] = $row['login'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['phone'] = $row['phone'];
+            $_SESSION['role'] = $row['role'];
+        }
+        header("Location: ./dist/");
     }
 }
 
@@ -39,7 +51,7 @@ if (!empty($_POST['reg'])) {
 // Авторизация
 if (!empty($_POST['login'])) {
     $login = $_POST['login-input'];
-    $pass = $_POST['pass-login'];
+    $pass = md5($_POST['pass-login']);
 
     $queryLogin = "SELECT * FROM `users` WHERE `login` = '$login'";
     $resultLogin = mysqli_query($connection, $queryLogin) or die(mysqli_error($connection));
@@ -47,8 +59,17 @@ if (!empty($_POST['login'])) {
     if ($resultLogin->num_rows > 0) {
         $queryPass = "SELECT * FROM `users` WHERE `password` = '$pass'";
         $resulPass = mysqli_query($connection, $queryPass) or die(mysqli_error($connection));
-        if ($resulPass->num_rows > 1) {
-            echo '1';
+        if ($resulPass->num_rows >= 1) {
+            $query = "SELECT * FROM `users` WHERE login='$login'";
+            $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+            while ($row = $result->fetch_assoc()) {
+                $_SESSION['idUser'] = $row['id'];
+                $_SESSION['login'] = $row['login'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['phone'] = $row['phone'];
+                $_SESSION['role'] = $row['role'];
+            }
+            header("Location: ./dist/");
         } else {
             $errMessagePass = 'Пароль введён неверно';
         }
@@ -56,17 +77,16 @@ if (!empty($_POST['login'])) {
         $errMessageLogin = 'Такого пользователя не существует';
     }
 }
-
-
 ?>
-<div class="overlay">
+
+<div class="overlay-reg">
     <div class="overlay__contact overlay__contact-reg active">
         <div class="overlay__close">
             <img src="/dist/images/close.svg" alt="Крестик для закрытия" class="overlay__img">
         </div>
         <h4 class="overlay__title title-fz20">Регистрация</h4>
         <form method="POST" class="overlay__form">
-            <input type="tel" placeholder="Введите логин" name="reg-input" id="reg-input" class="overlay__input title-fz16" required>
+            <input type="text" placeholder="Введите логин" name="reg-input" id="reg-input" class="overlay__input title-fz16" required>
             <div class="reg__text reg__err"><?= $errMessageLoginReg ?></div>
             <input type="email" placeholder="Введите почту" name="email-reg" id="email-reg" class="overlay__input title-fz16" required>
             <input type="password" placeholder="Введите пароль" name="pass-reg" id="pass-reg" class="overlay__input title-fz16" required>
@@ -81,7 +101,7 @@ if (!empty($_POST['login'])) {
         </div>
         <h4 class="overlay__title title-fz20">Вход</h4>
         <form method="POST" class="overlay__form">
-            <input type="tel" placeholder="Введите логин" name="login-input" id="login-input" class="overlay__input title-fz16" required>
+            <input type="text" placeholder="Введите логин" name="login-input" id="login-input" class="overlay__input title-fz16" required>
             <?=$errMessageLogin?>
             <input type="password" placeholder="Введите пароль" name="pass-login" id="pass-login" class="overlay__input title-fz16" required>
             <?=$errMessagePass?>

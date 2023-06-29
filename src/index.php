@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include("config/main.php");
+
+    $queryPet = "SELECT `id`, `name`,TIMESTAMPDIFF(MONTH,`age`,CURRENT_DATE) as age, `gender`, `type`, `avatar` FROM `pets`";
+    $resultPet = mysqli_query($connection, $queryPet);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,8 +15,7 @@
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body>
-    <?php include('models/header.php') ?>
-
+    <?php include('models/header.php'); ?>
     <section class="promo">
         <div class="container">
             <h1 class="promo__title title-fz38">Спаси жизнь! <br>
@@ -17,7 +23,6 @@
             <a href="pages/pets.php" class="promo__btn btn">Забрать питомца</a>
         </div>
     </section>
-
     <section class="ourpets">
         <div class="container">
             <h2 class="ourpets__title title-fz28">Наши питомцы</h2>
@@ -33,16 +38,47 @@
             </div>
             <div class="ourpets__slider">
                 <ul class="ourpets__list">
+                    <?php while($row = $resultPet->fetch_assoc()): ?>
                     <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
+                        <a href="pages/pets-page.php?pet_id=<?=$row['id']?>" class="ourpets__link">
                             <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Тесси</h3>
-                                <p class="ourpets__text">Девочка, 3,5 месяца</p>
+                                <h3 class="ourpets__subtitle title-fz24"><?=$row['name']?></h3>
+                                <p class="ourpets__text">
+                                <?php 
+                                    if($row['gender'] == 'ж') {
+                                        echo 'Девочка, ';
+                                    } else {
+                                        echo 'Мальчик, ';
+                                    }
+                                    if(($row['age']/12) >= 1 ) {
+                                        if(($row['age']/12) == 1) {
+                                            echo round($row['age']/12) . " год";
+                                        }
+                                        if(5 > ($row['age']/12) && ($row['age']/12) > 1) {
+                                            echo round($row['age']/12) . " года";
+                                        }
+                                        if(($row['age']/12) >= 5) {
+                                            echo round($row['age']/12) . " лет";
+                                        }
+                                    } else {
+                                        if($row['age'] == 1) {
+                                            echo $row['age'] . " месяц";
+                                        }
+                                        if($row['age'] > 1 && $row['age'] < 5) {
+                                            echo $row['age'] . " месяца";
+                                        }
+                                        if($row['age'] >= 5) {
+                                            echo $row['age'] . " месяцев";
+                                        }
+                                    }
+                                ?>
+                                </p>
                             </div>
-                            <img src="images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="ourpets__img">
+                            <img src="images/pets/dogs/<?=$row['avatar']?>.jpg" alt="" class="ourpets__img">
                         </a>
                     </li>
-                    <li class="ourpets__card">
+                    <?php endwhile; ?>
+                    <!-- <li class="ourpets__card">
                         <a href="pages/pets-page.php" class="ourpets__link">
                             <div class="ourpets__gradient">
                                 <h3 class="ourpets__subtitle title-fz24">Геральт</h3>
@@ -106,7 +142,7 @@
                             <img src="images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="ourpets__img">
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </section>
@@ -143,8 +179,8 @@
     <?php include('models/footer.php') ?>
     <?php include('models/reg-overlay.php') ?>
 
-
+    <script src="js/imask.js"></script>
     <script src="js/script.js"></script>
 
 </body>
-</html>
+</html> 

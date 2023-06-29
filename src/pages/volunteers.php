@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    include('../config/main.php');
+
+    $queryVolonteer = "SELECT volonteer.name, volonteer.about, volonteer.image, pets.name as pet FROM `volonteer`,`pets` WHERE pets.id=volonteer.pet_id";
+    $resultVolonteer = mysqli_query($connection,$queryVolonteer);
+
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -36,14 +46,16 @@
         <div class="container">
             <h2 class="volonteer__title title-fz28">Наши волонтёры</h2>
             <ul class="volonteer__list">
-                <li class="volonteer__item">
-                    <img src="../images/volonteer/volonteer-karina.png" alt="Девушка со светлыми волосами" class="volonteer__img">
-                    <div class="volonteer__gradient">
-                        <h3 class="volonteer__subtitle title-fz24">Карина</h3>
-                        <p class="volonteer__descr">Подопечная: Топси</p>
-                        <p class="volonteer__descr">Стала волонтёром из-за желания помогать нуждающимся животным, оказавшимся в сложной жизненной ситуации.</p>
-                    </div>
-            </li>
+                <?php while($row = $resultVolonteer->fetch_assoc()):?>
+                    <li class="volonteer__item">
+                        <img src="../images/volonteer/<?=$row['image']?>.jpg" alt="Девушка со светлыми волосами" class="volonteer__img">
+                        <div class="volonteer__gradient">
+                            <h3 class="volonteer__subtitle title-fz24"><?=$row['name']?></h3>
+                            <p class="volonteer__descr">Подопечная: <?=$row['pet']?></p>
+                            <p class="volonteer__descr"><?=$row['about']?></p>
+                        </div>
+                    </li>
+                <?php endwhile;?>
             </ul>
         </div>
     </section>
@@ -65,6 +77,7 @@
         </div>
     </div>
 
+    <script src="../js/imask.js"></script>
     <script src="../js/script.js"></script>
 
 </body>
