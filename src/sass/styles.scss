@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap');
 
 @import 'base/mixins';
@@ -9,7 +9,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: $textColor;
@@ -35,6 +35,10 @@ input[type=checkbox] {
     height: 15px;
     border: 2px solid $secondColor;
     color: $secondColor;
+}
+
+textarea {
+    resize: vertical;
 }
 
 
@@ -142,3 +146,12 @@ input[type=checkbox] {
 
 // Личный кабинет
 @import 'blocks/account';
+
+#picture {
+    border: none;
+    width: 260px;
+    padding: 0;
+}
+#gender {
+    width: 80px;
+}

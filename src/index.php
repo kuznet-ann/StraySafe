@@ -74,75 +74,24 @@
                                 ?>
                                 </p>
                             </div>
-                            <img src="images/pets/dogs/<?=$row['avatar']?>.jpg" alt="" class="ourpets__img">
+                            <img src="images/pets/<?php
+                            switch ($row['type']) {
+                                case 'собака':
+                                    echo 'dogs';
+                                    break;
+                                
+                                case 'кот':
+                                    echo 'cats';
+                                    break;
+
+                                default:
+                                    echo '';
+                                    break;
+                            }
+                        ?>/<?=$row['avatar']?>" alt="" class="ourpets__img">
                         </a>
                     </li>
                     <?php endwhile; ?>
-                    <!-- <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Геральт</h3>
-                                <p class="ourpets__text">Мальчик, 9 месяцев</p>
-                            </div>
-                            <img src="images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="ourpets__img">
-                        </a>
-                    </li>
-                    <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Лео</h3>
-                                <p class="ourpets__text">Мальчик, 1 год</p>
-                            </div>
-                            <img src="images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="ourpets__img">
-                        </a>
-                    </li>
-                    <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Топси</h3>
-                                <p class="ourpets__text">Девочка, 2 года</p>
-                            </div>
-                            <img src="images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="ourpets__img">
-                        </a>
-                    </li>
-
-                    <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Тесси</h3>
-                                <p class="ourpets__text">Девочка, 3,5 месяца</p>
-                            </div>
-                            <img src="images/pets/dogs/tessi/1.jpg" alt="Тесси, девочка, 3,5 месяца. Черный окрас с белыми пятнами." class="ourpets__img">
-                        </a>
-                    </li>
-                    <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Геральт</h3>
-                                <p class="ourpets__text">Мальчик, 9 месяцев</p>
-                            </div>
-                            <img src="images/pets/dogs/geralt/6.jpg" alt="Геральт, мальчик, 9 месяцев. Пятнистый коричневый окрас" class="ourpets__img">
-                        </a>
-                    </li>
-                    <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Лео</h3>
-                                <p class="ourpets__text">Мальчик, 1 год</p>
-                            </div>
-                            <img src="images/pets/dogs/leo/1.jpg" alt="Лео, мальчик, 1 год. Светло-рыжий пятнистый окрас." class="ourpets__img">
-                        </a>
-                    </li>
-                    <li class="ourpets__card">
-                        <a href="pages/pets-page.php" class="ourpets__link">
-                            <div class="ourpets__gradient">
-                                <h3 class="ourpets__subtitle title-fz24">Топси</h3>
-                                <p class="ourpets__text">Девочка, 2 года</p>
-                            </div>
-                            <img src="images/pets/dogs/topsi/2.jpg" alt="Топси, девочка, 2 года. Черная с белыми пятнами." class="ourpets__img">
-                        </a>
-                    </li>
-                </ul> -->
             </div>
         </div>
     </section>

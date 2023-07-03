@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include('C:\openserver\domains\stray-safe\dist\config\main.php');
+include('dist/config/main.php');
 
 // Регистрация
 $errMessageLoginReg = '';
@@ -12,7 +12,7 @@ $errMessagePass = '';
 if (!$connection) {
     die("Ошибка соединения: " . mysqli_connect_error());
 }
-
+// Регистрация
 if (!empty($_POST['reg'])) {
     $login = $_POST['reg-input'];
     $email = $_POST['email-reg'];
@@ -25,7 +25,7 @@ if (!empty($_POST['reg'])) {
     $query = "SELECT * FROM `users` WHERE login='$login'";
     $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
     
-    if (($result->num_rows > 0)) {
+    if ($result->num_rows > 0) {
         $errMessageLoginReg = 'Логин уже существует';
     } else {
         $checkLogin = true;
@@ -43,7 +43,7 @@ if (!empty($_POST['reg'])) {
             $_SESSION['phone'] = $row['phone'];
             $_SESSION['role'] = $row['role'];
         }
-        header("Location: ./dist/");
+        header('Location: dist/');
     }
 }
 
@@ -69,7 +69,7 @@ if (!empty($_POST['login'])) {
                 $_SESSION['phone'] = $row['phone'];
                 $_SESSION['role'] = $row['role'];
             }
-            header("Location: ./dist/");
+            // header("Location: ./dist/"); 
         } else {
             $errMessagePass = 'Пароль введён неверно';
         }

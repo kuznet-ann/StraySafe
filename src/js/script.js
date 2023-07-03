@@ -61,6 +61,8 @@ const overlayFunc = (openBtn, block, closeBtn) => {
 overlayFunc('.btn-overlay','.overlay','.overlay__close');
 overlayFunc('.btn-overla-reg','.overlay-reg','.overlay__close');
 overlayFunc('.catalog__btn-sort','.catalog__sort-wrapper','.catalog__form-serch');
+overlayFunc('.catalog__btn-admin', '.overlay-add','.overlay__close');
+overlayFunc('.catalog__btn-edit', '.overlay-chage','.overlay__close');
 
 // Переключение между регистрацией и авторизацией
 if (document.body.contains(document.querySelector('.overlay__contact-login'))) {
@@ -98,7 +100,6 @@ const checkValidationLogin = (inputId) => {
                 }
             }
         }
-        // console.log("l" + login.value);
     });
 };
 
@@ -112,7 +113,6 @@ const checkValidationEmail = (inputId) => {
         } else {
             email.setCustomValidity("");
         }
-        // console.log("e" + email.value);
     });
 };
 
@@ -138,7 +138,7 @@ checkValidationPass("pass-reg");
 document.addEventListener('DOMContentLoaded', () => {
 
     const mask = (dataValue, options) => {
-        const elements = document.querySelectorAll(`input[type="${dataValue}"]`);
+        const elements = document.querySelectorAll(`[data-mask="${dataValue}"]`);
         if (!elements) return;
   
         elements.forEach(el => {
@@ -158,3 +158,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Поиск
+if(document.body.contains(document.querySelector('#live_search'))) {
+    $(document).ready(function() {
+        $("#live_search").keyup(function() {
+            var input = $(this).val();
+    
+            $.ajax({
+                url: "../config/livesearch.php",
+                method: "POST",
+                data:{input:input},
+    
+                success: function(data) {
+                    $("#catalog__list").html(data);
+                }
+            });
+        });
+    });
+}

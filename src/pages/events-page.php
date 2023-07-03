@@ -38,7 +38,7 @@
     <section class="events-info">
         <div class="container">
             <div class="events-info__info">
-                <img src="../images/events/<?=$image?>.png" alt="" class="events-info__img">
+                <img src="../images/events/<?=$image?>" alt="" class="events-info__img">
                 <div class="events-info__wrapper">
                     <h3 class="events-info__title title-fz24"><?=$eventName?></h3>
                     <?php
@@ -67,7 +67,7 @@
             <h4 class="overlay__title title-fz20">Обратная связь</h4>
             <p class="overlay__descr">Впишите ваш номер телефона и мы свяжемся с вами с пятницы по понедельник с 12:00 до 18:00</p>
             <form action="" method="post" class="overlay__form">
-                <input type="tel" placeholder="Введите номер телефона" name="phone" id="phone" class="overlay__input title-fz16">
+                <input data-mask="tel" type="tel" placeholder="Введите номер телефона" name="phone" id="phone" class="overlay__input title-fz16">
                 <button class="overlay__btn btn">Свяжитесь со мной</button>
             </form>
         </div>

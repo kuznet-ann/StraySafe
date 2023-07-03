@@ -1,12 +1,7 @@
 .catalog {
     padding-top: 60px;
-    &__data {
-        display: none;
-        position: relative;
-        width: 987px;
-        display: flex;
-        margin: 0 auto;
-        gap: 20px;
+    &__form {
+        text-align: center;
     }
     &__search {
         box-sizing: border-box;
@@ -71,6 +66,11 @@
         &:first-child {
             margin-top: 0;
         }
+    }
+    &__btn-admin {
+        margin-top: 20px;
+        width: 250px;
+        text-align: center;
     }
 
     &__list {
