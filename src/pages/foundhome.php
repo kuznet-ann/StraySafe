@@ -60,7 +60,7 @@
     <section class="foundhome">
         <div class="container">
             <?php
-                if(!empty($_SESSION['role']) && $_SESSION['role'] > 2) {
+                if(!empty($_SESSION['role']) && $_SESSION['role'] > 1) {
                     echo '<button class="catalog__btn-admin btn">Добавить запись</button>';
                 }
             ?>

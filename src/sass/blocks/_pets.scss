@@ -67,12 +67,21 @@
             margin-top: 0;
         }
     }
+    &__form-delete {
+        display: inline;
+    }
     &__btn-admin {
         margin-top: 20px;
         width: 250px;
         text-align: center;
     }
-
+    &__btn-edit {
+        display: inline;
+        margin-right: 20px;
+    }
+    &__btn-delete {
+        display: inline;
+    }
     &__list {
         margin-top: 60px;
         display: flex;

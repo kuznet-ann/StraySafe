@@ -62,7 +62,7 @@ overlayFunc('.btn-overlay','.overlay','.overlay__close');
 overlayFunc('.btn-overla-reg','.overlay-reg','.overlay__close');
 overlayFunc('.catalog__btn-sort','.catalog__sort-wrapper','.catalog__form-serch');
 overlayFunc('.catalog__btn-admin', '.overlay-add','.overlay__close');
-overlayFunc('.catalog__btn-edit', '.overlay-chage','.overlay__close');
+overlayFunc('.catalog__btn-edit', '.overlay-change','.overlay__close');
 
 // Переключение между регистрацией и авторизацией
 if (document.body.contains(document.querySelector('.overlay__contact-login'))) {
@@ -149,12 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Маска для телефона
     mask('tel', {
         mask: '+{7}(000)000-00-00'
-    });
-  
-    // Маска для даты
-    mask('date', {
-        mask: Date,
-        min: new Date(1990, 0, 1),
     });
 });
 

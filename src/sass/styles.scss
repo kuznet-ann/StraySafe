@@ -97,6 +97,16 @@ textarea {
     }
 }
 
+.btn-red {
+    background-color: rgb(230, 37, 37);
+    &:hover {
+        background-color: rgb(251, 56, 56);
+    }
+    &:active {
+        background-color: rgb(198, 18, 18);
+    }
+}
+
 @media (max-width: 769px) {
     .container {
         box-sizing: border-box;

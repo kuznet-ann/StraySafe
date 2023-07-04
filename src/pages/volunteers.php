@@ -80,7 +80,7 @@
             <h2 class="volonteer__title title-fz28">Наши волонтёры</h2>
 
             <?php
-                if(!empty($_SESSION['role']) && $_SESSION['role'] > 2) {
+                if(!empty($_SESSION['role']) && $_SESSION['role'] > 1) {
                     echo '<button class="catalog__btn-admin btn">Добавить запись</button>';
                 }
             ?>

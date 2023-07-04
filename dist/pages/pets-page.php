@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    // ini_set('display_errors', 'Off'); 
     include('../config/main.php');
     $path = '../images/pets/';
     $types = array('image/gif', 'image/png', 'image/jpeg', 'image/jpg');
@@ -9,18 +9,40 @@
     $animalType = '';
 
     $pet_id = $_GET['pet_id'];
-    $queryPetInfo = "SELECT `name`,`story`, TIMESTAMPDIFF(MONTH,`age`,CURRENT_DATE) as age, `gender`,`avatar`,`type` FROM `pets` WHERE `id`=" . $pet_id;
+    $queryPetInfo = "SELECT `name`,`story`, `age` as `date`, TIMESTAMPDIFF(MONTH,`age`,CURRENT_DATE) as age, `gender`,`avatar`,`type`,`descr` FROM `pets` WHERE `id`=" . $pet_id;
     $resultPetInfo = mysqli_query($connection, $queryPetInfo);
     while($row = $resultPetInfo->fetch_assoc()) {
         $name = $row['name'];
-        $descr = $row['story'];
+        $descr = $row['descr'];
+        $story = $row['story'];
         $gender = $row['gender'];
         $age = $row['age'];
+        $date = $row['date'];
         $avatar = $row['avatar'];
         $type = $row['type'];
     }
 
-    if(!empty($_POST['chage'])) {
+    if(!empty($_POST['delete'])) {
+        $imagesCheck = mysqli_query($connection, "SELECT DISTINCT pet_id FROM images WHERE pet_id = $pet_id");
+        $homeCheck = mysqli_query($connection, "SELECT DISTINCT pet_id FROM foundhome WHERE pet_id = $pet_id");
+        $volonteerCheck = mysqli_query($connection, "SELECT DISTINCT pet_id FROM volonteer WHERE pet_id = $pet_id");
+
+        if ($imagesCheck->num_rows < 1 && $homeCheck->num_rows < 1 && $volonteerCheck->num_rows < 1) {
+            mysqli_query($connection, "DELETE FROM `pets` WHERE `id`= $pet_id") or die(mysqli_error($connection));
+            header("Location: pets.php");
+        } else {
+            $message = 'Сначала удалитe все связанные элементы';
+        }
+
+    }
+
+    if(!empty($_POST['change'])) {
+        $name = $_POST['pet-name'];
+        $descr = $_POST['descr'];
+        $story = $_POST['story'];
+        $age = date_format(date_create($_POST['age']), 'Y-m-d');
+        $type = $_POST['type'];
+        $gender = $_POST['gender'];
     
         if(!empty($_FILES['picture']['name'])){
             if(!in_array($_FILES['picture']['type'], $types)) {
@@ -47,7 +69,7 @@
             
             $imgName = uniqid() . $_FILES['picture']['name'];
             if (copy($_FILES['picture']['tmp_name'], $path . $animalType . $imgName)) {
-                mysqli_query($connection, "INSERT INTO `images`(`id`, `img`, `pet_id`) VALUES (null,'$imgName'," . $_GET['pet_id'] . ")") or die(mysqli_error($connection));
+                mysqli_query($connection, "UPDATE `pets` SET `name`='$name',`descr`='$descr',`story`='$story',`age`='$age',`gender`='$gender',`type`='$type',`avatar`='$imgName' WHERE `pets`.`id` = $pet_id") or die(mysqli_error($connection));
             } else {
                 $message = 'Что-то пошло не так';
             }
@@ -143,8 +165,12 @@
                                     echo $age . " месяцев";
                                 }
                             }
-                        ?> </p><p class="pets-info__descr"><?=$descr?></p><button class="pets-info__btn btn btn-overlay">Забрать питомца</button></div></div></div></section><section class="gallery"><div class="container"> <?php
+                        ?> </p><p class="pets-info__descr"><?=$story?></p><button class="pets-info__btn btn btn-overlay">Забрать питомца</button></div></div> <?php
                 if(!empty($_SESSION['role']) && $_SESSION['role'] > 1) {
+                    echo '<button class="catalog__btn-edit btn">Изменить запись</button>';
+                }
+                if(!empty($_SESSION['role']) && $_SESSION['role'] > 2): ?> <form method="post" class="catalog__form-delete"><input class="catalog__btn-delete btn-red btn" type="submit" name="delete" value="Удалить"></form> <?php endif;?> </div></section><section class="gallery"><div class="container"> <?php
+                if(!empty($_SESSION['role']) && $_SESSION['role'] > 0) {
                     echo '<button class="catalog__btn-admin btn">Добавить фото</button>';
                 }
             ?> <ul class="gallery__list"> <?php
@@ -165,4 +191,18 @@
                                     echo '';
                                     break;
                             }
-                        ?>/<?=$row['img']?>" alt="" class="gallery__img"></li> <?php endwhile;?> </ul></div></section> <?php include('../models/footer.php') ?> <?php include('../models/reg-overlay.php') ?> <div class="overlay-add"><div class="overlay__contact active"><div class="overlay__close"><img src="/dist/images/close.svg" alt="Крестик для закрытия" class="overlay__img"></div><h4 class="overlay__title title-fz20">Добавление фото</h4><form method="POST" class="overlay__form" enctype="multipart/form-data"><input class="overlay__input" class="overlay__choose" id="picture" name="picture" type="file"> <input class="overlay__btn overlay__btn-add btn" type="submit" name="add" value="Добавить запись"></form></div></div><div class="overlay"><div class="overlay__contact"><div class="overlay__close"><img src="../images/close.svg" alt="Крестик для закрытия" class="overlay__img"></div><h4 class="overlay__title title-fz20">Обратная связь</h4><p class="overlay__descr">Впишите ваш номер телефона и мы свяжемся с вами с пятницы по понедельник с 12:00 до 18:00</p><form class="overlay__form"><input data-mask="tel" type="tel" placeholder="Введите номер телефона" name="phone" id="phone" class="overlay__input title-fz16"> <button class="overlay__btn btn">Свяжитесь со мной</button></form></div></div><div class="overlay-change"><div class="overlay__contact active"><div class="overlay__close"><img src="/dist/images/close.svg" alt="Крестик для закрытия" class="overlay__img"></div><h4 class="overlay__title title-fz20">Добавление записи</h4><form method="POST" class="overlay__form" enctype="multipart/form-data"><input type="text" placeholder="Введите имя питомца" value="<?=$name?>" name="pet-name" id="pet-name" class="overlay__input title-fz16" required> <textarea placeholder="Введите краткое описание" value="<?=$descr?>" name="descr" id="descr" class="overlay__input title-fz16" required></textarea> <textarea placeholder="Введите историю" value="<?=$story?>" name="story" id="story" class="overlay__input title-fz16" required></textarea> <input class="overlay__input title-fz16 overlay__input-small" value="<?=$date?>" type="date" name="age" id="age" required> <select class="overlay__input overlay__input-small overlay__input-margin" name="type" id="type"><option>собака</option><option>кот</option></select> <select class="overlay__input overlay__input-small" name="gender" id="gender"><option>м</option><option>ж</option></select> <input class="overlay__input overlay__input-small overlay__input-margin" class="overlay__choose" id="picture" name="picture" type="file" required> <input class="overlay__btn btn" type="submit" name="change" value="Добавить запись"></form></div></div><script src="../js/imask.js"></script><script src="../js/script.js"></script></body></html>
+                        ?>/<?=$row['img']?>" alt="" class="gallery__img"></li> <?php endwhile;?> </ul></div></section> <?php include('../models/footer.php') ?> <?php include('../models/reg-overlay.php') ?> <div class="overlay"><div class="overlay__contact"><div class="overlay__close"><img src="../images/close.svg" alt="Крестик для закрытия" class="overlay__img"></div><h4 class="overlay__title title-fz20">Обратная связь</h4><p class="overlay__descr">Впишите ваш номер телефона и мы свяжемся с вами с пятницы по понедельник с 12:00 до 18:00</p><form class="overlay__form"><input data-mask="tel" type="tel" placeholder="Введите номер телефона" name="phone" id="phone" class="overlay__input title-fz16"> <button class="overlay__btn btn">Свяжитесь со мной</button></form></div></div><div class="overlay-add"><div class="overlay__contact active"><div class="overlay__close"><img src="/dist/images/close.svg" alt="Крестик для закрытия" class="overlay__img"></div><h4 class="overlay__title title-fz20">Добавление фото</h4><form method="POST" class="overlay__form" enctype="multipart/form-data"><input class="overlay__input" class="overlay__choose" id="picture" name="picture" type="file"> <input class="overlay__btn overlay__btn-add btn" type="submit" name="add" value="Добавить запись"></form></div></div><div class="overlay-change"><div class="overlay__contact active"><div class="overlay__close"><img src="/dist/images/close.svg" alt="Крестик для закрытия" class="overlay__img"></div><h4 class="overlay__title title-fz20">Добавление записи</h4><form method="POST" class="overlay__form" enctype="multipart/form-data"><input type="text" placeholder="Введите имя питомца" value="<?=$name?>" name="pet-name" id="pet-name" class="overlay__input title-fz16" required> <textarea placeholder="Введите краткое описание" name="descr" id="descr" class="overlay__input title-fz16" required><?=$descr?></textarea> <textarea placeholder="Введите историю" name="story" id="story" class="overlay__input title-fz16" required><?=$story?></textarea> <input class="overlay__input title-fz16 overlay__input-small" value="<?=$date?>" type="date" name="age" id="age" required> <select class="overlay__input overlay__input-small overlay__input-margin" name="type" id="type"> <?php if($type == 'собака'):?> <option selected="selected">собака</option><option>кот</option> <?php else:?> <option>собака</option><option selected="selected">кот</option> <?php endif;?> </select> <select class="overlay__input overlay__input-small" name="gender" id="gender"> <?php if($gender == 'м'):?> <option selected="selected">м</option><option>ж</option> <?php else:?> <option>м</option><option selected="selected">ж</option> <?php endif;?> </select> <input class="overlay__input overlay__input-small overlay__input-margin" class="overlay__choose" id="picture" name="picture" value="../images/pets/<?php
+                            switch ($type) {
+                                case 'собака':
+                                    echo 'dogs';
+                                    break;
+                                
+                                case 'кот':
+                                    echo 'cats';
+                                    break;
+
+                                default:
+                                    echo '';
+                                    break;
+                            }
+                        ?>/<?=$avatar?>" type="file" required> <input class="overlay__btn btn" type="submit" name="change" value="Изменить"></form></div></div><script src="../js/imask.js"></script><script src="../js/script.js"></script></body></html>
