@@ -46,6 +46,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Волонтёрство</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.svg">
     <link rel="stylesheet" href="../css/styles.min.css">
 </head>
 <body>

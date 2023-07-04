@@ -43,7 +43,7 @@ if (!empty($_POST['reg'])) {
             $_SESSION['phone'] = $row['phone'];
             $_SESSION['role'] = $row['role'];
         }
-        header("Location: ../index.php");
+        header('Location: dist/');
     }
 }
 
@@ -69,8 +69,7 @@ if (!empty($_POST['login'])) {
                 $_SESSION['phone'] = $row['phone'];
                 $_SESSION['role'] = $row['role'];
             }
-            header("Location: ../index.php");
-
+            // header("Location: ./dist/"); 
         } else {
             $errMessagePass = 'Пароль введён неверно';
         }

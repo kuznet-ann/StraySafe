@@ -10,7 +10,6 @@
     $message = '';
 
     $queryPetInfo = "SELECT DISTINCT pets.id, `name`, pets.descr, TIMESTAMPDIFF(MONTH,`age`,CURRENT_DATE) as age, `gender`, `avatar`, `type` FROM `pets`,`foundhome`";
-    //  WHERE pets.id!=foundhome.pet_id
     $resultPetInfo = mysqli_query($connection,$queryPetInfo);
 
     if(!empty($_POST['add'])) {
@@ -57,7 +56,7 @@
 
     }
 
-?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Наши питомцы</title><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"><div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="pets.php" class="breadcrumbs__link title-fz16">Наши питомцы</a></div></div></section> <?=$message?> <section class="catalog"><div class="container"><form action="../config/livesearch.php" method="post" class="catalog__form"><input type="text" id="live_search" name="live_search" placeholder="Введите имя питомца" class="catalog__search title-fz16"></form> <?php
+?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Наши питомцы</title><link rel="icon" type="image/x-icon" href="../images/logo.svg"><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"><div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="pets.php" class="breadcrumbs__link title-fz16">Наши питомцы</a></div></div></section> <?=$message?> <section class="catalog"><div class="container"><form action="../config/livesearch.php" method="post" class="catalog__form"><input type="text" id="live_search" name="live_search" placeholder="Введите имя питомца" class="catalog__search title-fz16"></form> <?php
                 if(!empty($_SESSION['role']) && $_SESSION['role'] > 1) {
                     echo '<button class="catalog__btn-admin btn">Добавить запись</button>';
                 }

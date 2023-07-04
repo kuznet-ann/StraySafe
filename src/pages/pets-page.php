@@ -1,6 +1,5 @@
 <?php
     session_start();
-    // ini_set('display_errors', 'Off'); 
     include('../config/main.php');
     $path = '../images/pets/';
     $types = array('image/gif', 'image/png', 'image/jpeg', 'image/jpg');
@@ -131,6 +130,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$name?></title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.svg">
     <link rel="stylesheet" href="../css/styles.min.css">
 </head>
 <body>

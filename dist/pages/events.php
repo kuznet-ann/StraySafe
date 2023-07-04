@@ -39,7 +39,7 @@
         header("Location: events.php");
 
     }
-?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Мероприятия</title><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"><div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="events.php" class="breadcrumbs__link title-fz16">Мероприятия</a></div></div></section><section class="events"><div class="container"><h2 class="events__title title-fz28">Мероприятия</h2> <?php
+?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Мероприятия</title><link rel="icon" type="image/x-icon" href="../images/logo.svg"><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"><div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="events.php" class="breadcrumbs__link title-fz16">Мероприятия</a></div></div></section><section class="events"><div class="container"><h2 class="events__title title-fz28">Мероприятия</h2> <?php
                 if(!empty($_SESSION['role']) && $_SESSION['role'] > 1) {
                     echo '<button class="catalog__btn-admin btn">Добавить запись</button>';
                 }

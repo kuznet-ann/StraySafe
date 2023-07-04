@@ -35,7 +35,7 @@
         header("Location: foundhome.php");
 
     }
-?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Нашли дом</title><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php'); ?> <section class="breadcrumbs"><div class="container"> <?=$message?> <div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="foundhome.php" class="breadcrumbs__link title-fz16">Нашли дом</a></div></div></section><section class="foundhome"><div class="container"> <?php
+?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Нашли дом</title><link rel="icon" type="image/x-icon" href="../images/logo.svg"><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php'); ?> <section class="breadcrumbs"><div class="container"> <?=$message?> <div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="foundhome.php" class="breadcrumbs__link title-fz16">Нашли дом</a></div></div></section><section class="foundhome"><div class="container"> <?php
                 if(!empty($_SESSION['role']) && $_SESSION['role'] > 1) {
                     echo '<button class="catalog__btn-admin btn">Добавить запись</button>';
                 }

@@ -1,6 +1,5 @@
 <?php
     session_start();
-    // ini_set('display_errors', 'Off'); 
     include('../config/main.php');
     $path = '../images/pets/';
     $types = array('image/gif', 'image/png', 'image/jpeg', 'image/jpg');
@@ -124,7 +123,7 @@
 
 
     }
-?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?=$name?></title><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"> <?=$message?> <div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="pets.php" class="breadcrumbs__link title-fz16">Наши питомцы</a> <a href="pets-page.php?pet_id=<?=$pet_id?>" class="breadcrumbs__link title-fz16"><?=$name?></a></div></div></section><section class="pets-info"><div class="container"><div class="pets-info__info"><img src="../images/pets/<?php
+?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?=$name?></title><link rel="icon" type="image/x-icon" href="../images/logo.svg"><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"> <?=$message?> <div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="pets.php" class="breadcrumbs__link title-fz16">Наши питомцы</a> <a href="pets-page.php?pet_id=<?=$pet_id?>" class="breadcrumbs__link title-fz16"><?=$name?></a></div></div></section><section class="pets-info"><div class="container"><div class="pets-info__info"><img src="../images/pets/<?php
                             switch ($type) {
                                 case 'собака':
                                     echo 'dogs';

@@ -10,7 +10,6 @@
     $message = '';
 
     $queryPetInfo = "SELECT DISTINCT pets.id, `name`, pets.descr, TIMESTAMPDIFF(MONTH,`age`,CURRENT_DATE) as age, `gender`, `avatar`, `type` FROM `pets`,`foundhome`";
-    //  WHERE pets.id!=foundhome.pet_id
     $resultPetInfo = mysqli_query($connection,$queryPetInfo);
 
     if(!empty($_POST['add'])) {
@@ -64,6 +63,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наши питомцы</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.svg">
     <link rel="stylesheet" href="../css/styles.min.css">
 </head>
 <body>

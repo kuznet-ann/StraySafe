@@ -1,4 +1,6 @@
 <?php
+    ini_set('display_errors', 'Off'); 
+
     $host = 'localhost';
     $user = 'root';
     $password = '';

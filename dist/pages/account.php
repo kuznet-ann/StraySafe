@@ -2,14 +2,7 @@
     session_start();
 
     include('../config/main.php');
-
-    // $queryAccount = "SELECT `id`, `login`, `email`, `phone`, `role` FROM `users` WHERE `id`=" . $_SESSION['idUser'];
-    // $resultAccount = mysqli_query($connection,$queryAccount);
-
-    // while($row = $resultAccount->fetch_assoc()) {
-    //     $login = 
-    // }
-?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Личный кабинет</title><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"><div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="account.php" class="breadcrumbs__link title-fz16">Личный кабинет</a></div></div></section><section class="account"><div class="container"><h3 class="account__title title title-fz24">Персональные данные</h3><ul class="account__list"><li class="account__item">Логин: <?= $_SESSION['login']?> </li><li class="account__item">Почта: <?= $_SESSION['email']?> </li><li class="account__item">Телефон: <?= $_SESSION['phone']?> </li><li class="account__item">Роль: <?php
+?> <!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Личный кабинет</title><link rel="icon" type="image/x-icon" href="../images/logo.svg"><link rel="stylesheet" href="../css/styles.min.css"></head><body> <?php include('../models/header.php') ?> <section class="breadcrumbs"><div class="container"><div class="breadcrumbs__list"><a href="../index.php" class="breadcrumbs__link title-fz16">Главная</a> <a href="account.php" class="breadcrumbs__link title-fz16">Личный кабинет</a></div></div></section><section class="account"><div class="container"><h3 class="account__title title title-fz24">Персональные данные</h3><ul class="account__list"><li class="account__item">Логин: <?= $_SESSION['login']?> </li><li class="account__item">Почта: <?= $_SESSION['email']?> </li><li class="account__item">Телефон: <?= $_SESSION['phone']?> </li><li class="account__item">Роль: <?php
                         switch ($_SESSION['role']) {
                             case '0':
                                 echo 'Пользователь';

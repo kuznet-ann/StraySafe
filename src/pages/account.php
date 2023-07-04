@@ -2,13 +2,6 @@
     session_start();
 
     include('../config/main.php');
-
-    // $queryAccount = "SELECT `id`, `login`, `email`, `phone`, `role` FROM `users` WHERE `id`=" . $_SESSION['idUser'];
-    // $resultAccount = mysqli_query($connection,$queryAccount);
-
-    // while($row = $resultAccount->fetch_assoc()) {
-    //     $login = 
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.svg">
     <link rel="stylesheet" href="../css/styles.min.css">
 </head>
 <body>
